@@ -3,6 +3,7 @@ import pandas as pd
 from database import create_table, add_transaction, get_transactions, delete_transaction
 from analysis import analyze, get_warnings
 from datetime import date
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Smart Finance Tracker", layout="wide")
 
@@ -20,7 +21,7 @@ def emotion_rain(transaction_type):
         position: fixed;
         top: -60px;
         font-size: 52px;
-        animation: fall linear infinite;
+        animation: fall linear forwards;
         z-index: 9999;
         pointer-events: none;
     }
@@ -43,7 +44,7 @@ def emotion_rain(transaction_type):
         </div>
         """
 
-    st.markdown(html, unsafe_allow_html=True)
+    components.html(html, height=0)
 
 
 # 📊 dict → tablo dönüşümü
